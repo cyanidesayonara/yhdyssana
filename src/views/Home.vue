@@ -1,18 +1,28 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-container>
+    <v-layout>
+      <v-flex xs12 sm4 offset-sm4>
+        <WordForm />
+      </v-flex>
+    </v-layout>
+    <v-layout>
+      <v-flex xs12 sm4 offset-sm4>
+        <WordList msg="Lista" />
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import WordForm from '../components/WordForm'
+import WordList from '../components/WordList'
+import { mapState } from 'vuex'
 
 export default {
-  name: "home",
   components: {
-    HelloWorld
-  }
-};
+    WordList,
+    WordForm
+  },
+  computed: mapState(['formHeader', 'sanat'])
+}
 </script>
