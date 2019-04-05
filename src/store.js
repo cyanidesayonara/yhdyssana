@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    aboutHeader: 'About',
     formHeader: 'Kirjoita yhdyssana - yhteen tai erikseen',
     listHeader: 'Sanat',
     sanat: ['Sana', 'Sana', 'Sana', 'Sana']
