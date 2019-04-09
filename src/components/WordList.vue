@@ -5,11 +5,11 @@
     </v-card-title>
     <v-card-text>
       <v-flex
-        v-for="(sana, index) in sanat"
+        v-for="(word, index) in words"
         v-bind:key="index"
         xs12
         class="mt-3 py-2 px-2 grey lighten-3"
-        >{{ sana }}</v-flex
+        >{{ word }}</v-flex
       >
     </v-card-text>
   </v-card>
@@ -21,7 +21,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'WordForm',
   computed: {
-    ...mapState(['listHeader', 'sanat'])
+    ...mapState(['listHeader', 'words'])
   }
 }
 </script>

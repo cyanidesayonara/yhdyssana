@@ -1,15 +1,6 @@
 <template>
   <v-app>
-    <v-toolbar>
-      <v-container>
-        <v-layout>
-          <v-flex xs12 sm4 offset-sm4>
-            <router-link to="/">Home</router-link>|
-            <router-link to="/about">About</router-link>
-          </v-flex>
-        </v-layout>
-      </v-container>
-    </v-toolbar>
+    <Navbar />
     <v-content>
       <router-view></router-view>
     </v-content>
@@ -17,9 +8,18 @@
 </template>
 
 <script>
+import Navbar from '@/components/Navbar'
+import getWords from '../parser'
+
+const words = ['word', 'word', 'word', 'word']
+
+getWords()
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: { Navbar },
+  mounted() {
+    this.$store.dispatch('loadWords', words)
+  }
 }
 </script>
-
-<style></style>

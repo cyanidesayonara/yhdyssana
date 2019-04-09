@@ -8,8 +8,16 @@ export default new Vuex.Store({
     aboutHeader: 'About',
     formHeader: 'Kirjoita yhdyssana - yhteen tai erikseen',
     listHeader: 'Sanat',
-    sanat: ['Sana', 'Sana', 'Sana', 'Sana']
+    words: []
   },
-  mutations: {},
-  actions: {}
+  mutations: {
+    MUTATE_WORDS: (state, words) => {
+      Vue.set(state, 'words', [...words])
+    }
+  },
+  actions: {
+    loadWords: (context, words) => {
+      context.commit('MUTATE_WORDS', words)
+    }
+  }
 })
