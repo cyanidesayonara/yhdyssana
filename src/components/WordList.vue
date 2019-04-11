@@ -1,7 +1,7 @@
 <template>
   <v-card class="mb-5">
     <v-card-title class="grey lighten-3">
-      <h2>{{ listHeader }}</h2>
+      <h2>{{ wordListHeader }}</h2>
     </v-card-title>
     <v-card-text>
       <v-flex
@@ -21,7 +21,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'WordForm',
   computed: {
-    ...mapState(['listHeader', 'words'])
+    ...mapState(['wordListHeader', 'words'])
   }
 }
 </script>

@@ -9,11 +9,8 @@
 
 <script>
 import Navbar from '@/components/Navbar'
-import getWords from '../parser'
 
 const words = ['word', 'word', 'word', 'word']
-
-getWords()
 
 export default {
   name: 'App',

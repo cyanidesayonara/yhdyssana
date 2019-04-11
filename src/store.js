@@ -6,8 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     aboutHeader: 'About',
-    formHeader: 'Kirjoita yhdyssana - yhteen tai erikseen',
-    listHeader: 'Sanat',
+    wordFormHeader: 'Kirjoita yhdyssana - yhteen tai erikseen',
+    wordListHeader: 'Sanat',
     words: []
   },
   mutations: {
