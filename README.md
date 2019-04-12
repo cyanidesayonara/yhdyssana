@@ -1,8 +1,21 @@
 # yhdyssana
 
-App that checks whether or not user input words form a proper compound word in Finnish.
+A Vue app that checks whether or not user input words form a proper compound word in Finnish.
 
 https://yhdyssana.herokuapp.com/
+
+## Create .env file
+
+```
+PORT=PORT
+MONGODB_URI=MONGODB_URI
+```
+
+## Upload words to database
+
+```
+python wordUploader.py
+```
 
 ## Project setup
 
@@ -14,6 +27,12 @@ npm install
 
 ```
 npm run serve
+```
+
+### Run development environment with concurrently
+
+```
+npm run go
 ```
 
 ### Compiles and minifies for production
