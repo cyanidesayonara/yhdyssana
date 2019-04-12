@@ -3,7 +3,15 @@ const Word = require('../models/word')
 
 // get words
 wordsRouter.get('/', async (request, response) => {
-  const words = await Word.find({})
+  const words = await Word.find()
+  return response.json(words.map(note => Word.format(note)))
+})
+
+// get words
+wordsRouter.get('/:word', async (request, response) => {
+  const words = await Word.find({
+    text: request.params.word
+  })
   return response.json(words.map(note => Word.format(note)))
 })
 

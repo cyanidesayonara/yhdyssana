@@ -1,8 +1,16 @@
 const mongoose = require('mongoose')
 
-const wordSchema = new mongoose.Schema({
-  text: String
-})
+const wordSchema = new mongoose.Schema(
+  {
+    text: {
+      type: String,
+      required: true
+    }
+  },
+  {
+    timestamps: true
+  }
+)
 
 wordSchema.statics.format = note => {
   return {
