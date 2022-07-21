@@ -4,7 +4,7 @@ const baseUrl = '/api/words/'
 
 let token = null
 
-const setToken = newToken => {
+const setToken = (newToken) => {
   token = `bearer ${newToken}`
 }
 
@@ -15,43 +15,43 @@ const removeToken = () => {
 const getAll = async () => {
   const config = {
     headers: {
-      Authorization: token
-    }
+      Authorization: token,
+    },
   }
   const response = await axios.get(baseUrl, config)
   return response.data
 }
 
-const getOne = async word => {
+const getOne = async (word) => {
   const response = await axios.get(`${baseUrl}${word}`)
   return response.data
 }
 
-const create = async word => {
+const create = async (word) => {
   const config = {
     headers: {
-      Authorization: token
-    }
+      Authorization: token,
+    },
   }
   const response = await axios.post(baseUrl, word, config)
   return response.data
 }
 
-const update = async word => {
+const update = async (word) => {
   const config = {
     headers: {
-      Authorization: token
-    }
+      Authorization: token,
+    },
   }
   const response = await axios.put(`${baseUrl}${word.id}`, word, config)
   return response.data
 }
 
-const remove = async word => {
+const remove = async (word) => {
   const config = {
     headers: {
-      Authorization: token
-    }
+      Authorization: token,
+    },
   }
   const response = await axios.delete(`${baseUrl}${word.id}`, config)
   return response.data
@@ -64,5 +64,5 @@ export default {
   getOne,
   create,
   update,
-  remove
+  remove,
 }

@@ -5,8 +5,16 @@
     </v-card-title>
     <v-card-text>
       <v-form @submit.prevent="getWord(q)" ref="form">
-        <v-text-field clearable v-model="q" :rules="inputRules" label="Kirjoita yhdyssana" required></v-text-field>
-        <v-btn type="submit" flat class="grey lighten-3" :loading="loading">Hae</v-btn>
+        <v-text-field
+          clearable
+          v-model="q"
+          :rules="inputRules"
+          label="Kirjoita yhdyssana"
+          required
+        ></v-text-field>
+        <v-btn type="submit" flat class="grey lighten-3" :loading="loading"
+          >Hae</v-btn
+        >
       </v-form>
     </v-card-text>
   </v-card>
@@ -21,12 +29,12 @@ export default {
     return {
       q: '',
       loading: false,
-      inputRules: [v => v.length >= 3 || 'Minimum length is 3 characters']
+      inputRules: [(v) => v.length >= 3 || 'Minimum length is 3 characters'],
     }
   },
   name: 'WordForm',
   computed: {
-    ...mapState(['wordFormHeader', 'words'])
+    ...mapState(['wordFormHeader', 'words']),
   },
   methods: {
     submit() {
@@ -37,27 +45,24 @@ export default {
           this.loading = false
         }
         // concat this.q and search search for it in words
-        setTimeout(function() {
+        setTimeout(function () {
           thingy()
         }, 3000)
       }
     },
     getWord(q) {
-      const cleanedQ = q
-        .split(' ')
-        .join('')
-        .toLowerCase()
+      const cleanedQ = q.split(' ').join('').toLowerCase()
       wordService
         .getOne(cleanedQ)
-        .then(word => {
+        .then((word) => {
           this.$store.dispatch('setWord', q)
           this.$store.dispatch('getWord', word)
           this.$refs.form.reset()
           this.$refs.t.blur()
         })
-        .catch(error => console.log(error))
-    }
-  }
+        .catch((error) => console.log(error))
+    },
+  },
 }
 </script>
 

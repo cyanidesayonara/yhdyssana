@@ -4,15 +4,15 @@ const Word = require('../models/word')
 // get words
 wordsRouter.get('/', async (request, response) => {
   const words = await Word.find()
-  return response.json(words.map(note => Word.format(note)))
+  return response.json(words.map((note) => Word.format(note)))
 })
 
 // get words
 wordsRouter.get('/:word', async (request, response) => {
   const words = await Word.find({
-    text: request.params.word
+    text: request.params.word,
   })
-  return response.json(words.map(note => Word.format(note)))
+  return response.json(words.map((note) => Word.format(note)))
 })
 
 // add words
@@ -22,19 +22,19 @@ wordsRouter.post('/', async (request, response) => {
   try {
     if (body.text === undefined) {
       return response.status(400).json({
-        error: 'content missing'
+        error: 'content missing',
       })
     }
 
     const word = new Word({
-      text: body.text
+      text: body.text,
     })
 
     const savedWord = await word.save()
     return response.json(Word.format(savedWord))
   } catch (exception) {
     return response.status(500).send({
-      error: 'something went wrong...'
+      error: 'something went wrong...',
     })
   }
 })
@@ -46,7 +46,7 @@ wordsRouter.delete('/:id', async (request, response) => {
     return response.status(204).end()
   } catch (exception) {
     return response.status(400).send({
-      error: 'malformed id'
+      error: 'malformed id',
     })
   }
 })
@@ -58,7 +58,7 @@ wordsRouter.delete('/', async (request, response) => {
     return response.status(200).send()
   } catch (exception) {
     return response.status(500).send({
-      error: 'something went wrong...'
+      error: 'something went wrong...',
     })
   }
 })
